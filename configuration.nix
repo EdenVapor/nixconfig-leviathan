@@ -303,10 +303,10 @@ in
   security.acme = {
     acceptTerms = true;
     defaults.email = "fidgetbeeby@gmail.com";
-    certs."turn.${particularisation_config.domain_name}" = {
-      postRun = "systemctl restart coturn";
-      group = "turnserver";
-    };
+    # certs."turn.${particularisation_config.domain_name}" = {
+    #   postRun = "systemctl restart coturn";
+    #   group = "turnserver";
+    # };
   };
 
   # Adjust Plex systemd service
@@ -314,8 +314,8 @@ in
 
   # Firewall
   networking.firewall = {
-    allowedTCPPorts = [ 80 443 8080 32400 139 445 8448 5349 ];
-    allowedUDPPortRanges = [ {from = particularisation_config.turn_minimal_listening_port; to = particularisation_config.turn_maximal_listening_port;} ];
+    allowedTCPPorts = [ 80 443 8080 32400 139 445 ];
+    # allowedUDPPortRanges = [ {from = particularisation_config.turn_minimal_listening_port; to = particularisation_config.turn_maximal_listening_port;} ];
     allowedUDPPorts = [ 137 138 ];
   };
 

@@ -63,42 +63,9 @@
         '';
       };
     };
-    # Matrix Synapse virtual hosts
-    "matrix.${particularisation_config.domain_name}" = {
-      enableACME = true;
-      addSSL = true;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:8008";
-        proxyWebsockets = true;
-        extraConfig = ''
-          proxy_set_header X-Forwarded-For $remote_addr;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header Host $host;
-          client_max_body_size 50M;
-        '';
-      };
-      locations."/_matrix" = {
-        proxyPass = "http://127.0.0.1:8008";
-        proxyWebsockets = true;
-        extraConfig = ''
-          proxy_set_header X-Forwarded-For $remote_addr;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header Host $host;
-          client_max_body_size 50M;
-        '';
-      };
-    };
-    "turn.${particularisation_config.domain_name}" = {
-      enableACME = true;
-      addSSL = true;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:3478";
-        extraConfig = ''
-          proxy_set_header X-Forwarded-For $remote_addr;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header Host $host;
-        '';
-      };
-    };
+    # Matrix Synapse virtual hosts (Disabled)
+    # "matrix.${particularisation_config.domain_name}" = { ... };
+    # TURN server virtual host (Disabled)
+    # "turn.${particularisation_config.domain_name}" = { ... };
   };
 }

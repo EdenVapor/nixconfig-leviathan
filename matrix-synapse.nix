@@ -1,6 +1,6 @@
 {particularisation_config}:
 {
-  enable = true;
+  enable = false;
   settings = {
     server_name = particularisation_config.domain_name;
     public_baseurl = "https://matrix." + particularisation_config.domain_name + "/";
