@@ -1,4 +1,4 @@
-{particularisation_config}:
+{}:
 {
   recommendedTlsSettings = true;
   recommendedOptimisation = true;
@@ -71,9 +71,5 @@
         proxyWebsockets = true;
       };
     };
-    # Matrix Synapse virtual hosts (Disabled)
-    # "matrix.${particularisation_config.domain_name}" = { ... };
-    # TURN server virtual host (Disabled)
-    # "turn.${particularisation_config.domain_name}" = { ... };
   };
 }

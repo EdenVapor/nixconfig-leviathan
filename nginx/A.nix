@@ -1,4 +1,4 @@
-{particularisation_config}:
+{}:
 {
   enableACME = true;
   addSSL = true;
