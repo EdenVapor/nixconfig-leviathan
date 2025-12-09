@@ -63,6 +63,14 @@
         '';
       };
     };
+    "news.birdintra.net" = {
+      addSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8280";
+        proxyWebsockets = true;
+      };
+    };
     # Matrix Synapse virtual hosts (Disabled)
     # "matrix.${particularisation_config.domain_name}" = { ... };
     # TURN server virtual host (Disabled)
