@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  particularisation_config = import ../particularisation_config.nix;
 in
 {
   # Networking
@@ -19,7 +18,6 @@ in
   # Firewall
   networking.firewall = {
     allowedTCPPorts = [ 80 443 8080 32400 139 445 ];
-    # allowedUDPPortRanges = [ {from = particularisation_config.turn_minimal_listening_port; to = particularisation_config.turn_maximal_listening_port;} ];
     allowedUDPPorts = [ 137 138 ];
   };
 }
