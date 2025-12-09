@@ -1,4 +1,0 @@
-{
-  enableACME = true;
-  addSSL = true;
-}
