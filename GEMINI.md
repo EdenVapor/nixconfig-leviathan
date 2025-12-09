@@ -19,13 +19,10 @@ This directory (`/etc/nixos`) contains the NixOS configuration for the server na
     *   `networking.nix`: Network interface and firewall configurations.
     *   `nginx.nix`: Core Nginx web server configuration.
     *   `packages.nix`: Definitions for system-wide installed packages.
-    *   `particularisation_config.nix`: Specific or custom configurations for this particular server instance.
     *   `social.nix`: Configuration for social media-related services or integrations.
     *   `system.nix`: General system-level configurations.
     *   `users.nix`: User and group definitions.
     *   `web.nix`: General web-related service configurations, possibly distinct from Nginx specifics.
-*   `nginx/`: Contains Nginx virtual host or server block configurations, likely imported by `modules/nginx.nix`.
-    *   `A.nix`, `matrix.A.nix`, `turn.A.nix`, `www.A.nix`: These likely define specific Nginx server blocks or proxy configurations for different services (e.g., a general 'A' site, Matrix, TURN server, and the main 'www' site).
 *   `secrets/`: This directory is intended to hold sensitive information (e.g., API keys, passwords, private keys) that should be handled securely, often encrypted or managed by a secrets management system.
 *   `.git/`: Git repository metadata.
 *   `.gitignore`: Specifies intentionally untracked files to ignore.

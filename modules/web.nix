@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  nginx_config = (import ../nginx.nix) { };
+  nginx_config = (import ./nginx.nix) { };
 in
 {
   # Nginx
