@@ -17,8 +17,8 @@ in
 
   # Firewall
   networking.firewall = {
-    allowedTCPPorts = [ 80 443 8080 32400 139 445 ];
-    allowedUDPPorts = [ 137 138 ];
+    allowedTCPPorts = [ 80 443 8080 32400 139 445 8211 27015 ];
+    allowedUDPPorts = [ 137 138 8211 27015 ];
   };
 }
 
