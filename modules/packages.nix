@@ -13,6 +13,7 @@
     zulu
     openssl
     samba
+    kitty
   ];
 
   # Unfree/unsafe packages
