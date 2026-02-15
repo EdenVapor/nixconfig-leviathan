@@ -23,6 +23,8 @@
     ./modules/backup.nix
     ./modules/web.nix
     ./modules/file-sharing.nix
+    ./modules/ai.nix
+    ./modules/swap.nix
   ];
 
   programs.nix-ld.enable = true;
