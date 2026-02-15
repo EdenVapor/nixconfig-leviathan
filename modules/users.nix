@@ -25,7 +25,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGYxapdT59ZrDWosETu1OA5d5Ca0vbcIR0TV4lYn6nNH fidget@white-whale"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJmtqac+hGeuQ9Zif/gfq11Yu/Xqfyq1z8O1Kt090lAR fidget@1password"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIdU6V47iFxaupJrfZfTtG+K2+foyJSFPOyGP3YgSKNr fidget@eden"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEI1l4cdL0NhPeC05UHi1lN8s5v2BqvZJ4wJ8uOn2fvE fidget@seraph"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPM9oIeOZMfW96SYAJnFzWwoBeefBCs8xTKli5HADIOD fidget@seraph"
     ];
   };
 
