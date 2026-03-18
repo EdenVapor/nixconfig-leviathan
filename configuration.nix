@@ -21,11 +21,11 @@
     ./modules/ai.nix
     ./modules/swap.nix
     ./modules/secrets.nix
-    ./modules/openclaw.nix
+    #./modules/openclaw.nix
     "${
       fetchTarball {
         url = "https://github.com/Mic92/sops-nix/archive/master.tar.gz";
-        sha256 = "0mayn943a9xsfq9zzlzb6kl47ifmwy81h0q8kc4yrbw1y6akhmsh";
+        sha256 = "1bzpink1dn2fbdpyl99qwwbdzgfnwi6drfq210pcydi49y686a2l";
       }
     }/modules/sops"
   ];

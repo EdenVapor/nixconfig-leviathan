@@ -34,10 +34,8 @@
     image = "alpine/openclaw:latest";
     autoStart = true;
 
-    ports = [
-      "127.0.0.1:18789:18789" # Gateway / WebChat — Tailscale Serve fronts this
-      "127.0.0.1:18790:18790" # Bridge port
-    ];
+    # Port mapping disabled due to network=host
+    ports = [];
 
     volumes = [
       "/home/fidget/openclaw/.openclaw:/home/node/.openclaw"
@@ -53,26 +51,16 @@
     # Secrets injected from the sops-rendered env file — never touches the Nix store
     environmentFiles = [ config.sops.templates."openclaw.env".path ];
 
-    cmd = [ "node" "dist/index.js" "gateway" "--bind" "lan" "--port" "18789" ];
+    cmd = [ "node" "dist/index.js" "gateway" "--bind" "loopback" "--port" "18789" ];
 
     extraOptions = [
+      "--network=host"
+      "--no-healthcheck"
       "--init"
       "--cap-drop=NET_RAW"
       "--cap-drop=NET_ADMIN"
       "--security-opt=no-new-privileges:true"
-      ''
-        --health-cmd=node -e "fetch('http://127.0.0.1:18789/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"''
-      "--health-interval=30s"
-      "--health-timeout=5s"
-      "--health-retries=5"
-      "--health-start-period=20s"
     ];
-  };
-
-  # ── Make the container wait for sops secret decryption ────────────────
-  systemd.services.podman-openclaw = {
-    after = [ "sops-nix.service" ];
-    requires = [ "sops-nix.service" ];
   };
 
   # ── Ensure data directories exist with correct ownership ──────────────
