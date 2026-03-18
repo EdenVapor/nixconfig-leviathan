@@ -10,13 +10,13 @@
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
-  
+
   # Services
   services = {
     # Cron and SSH
     cron.enable = true;
     openssh.enable = true;
-    
+
     # Tailscale
     tailscale = {
       enable = true;
@@ -25,8 +25,12 @@
     };
   };
 
-  # Docker
-  virtualisation.docker.enable = true;
+  # Podman
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
 
   # Automatic updates
   system.autoUpgrade.enable = true;

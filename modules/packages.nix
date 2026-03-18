@@ -7,13 +7,16 @@
     sudo
     screen
     pv
-    docker-compose
+    podman-compose
     v4l-utils
     borgbackup
     zulu
     openssl
     samba
     kitty
+    uv
+    sops
+    ssh-to-age
   ];
 
   # Unfree/unsafe packages
@@ -29,15 +32,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Set up npm global directory for fidget user
-  environment.variables = {
-    NPM_CONFIG_PREFIX = "/home/fidget/.npm-global";
-  };
+  environment.variables = { NPM_CONFIG_PREFIX = "/home/fidget/.npm-global"; };
 
   # Add npm global bin to PATH
   environment.extraInit = ''
     export PATH="/home/fidget/.npm-global/bin:$PATH"
   '';
-  
+
   # Enable Fish shell
   programs.fish.enable = true;
 }

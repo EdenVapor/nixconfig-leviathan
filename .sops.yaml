@@ -1,0 +1,8 @@
+keys:
+  - &leviathan age1n5huwmwjkwg9t20zpxmke76tzkc9hunjk70rlv894sldhmamk9jq8kvlwm
+
+creation_rules:
+  - path_regex: secrets\.yaml$
+    key_groups:
+      - age:
+        - *leviathan

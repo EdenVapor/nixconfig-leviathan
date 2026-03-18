@@ -4,9 +4,9 @@
   # Users
   users.users.fidget = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "nginx" "turnserver" ];
+    extraGroups = [ "wheel" "podman" "nginx" "turnserver" ];
     shell = pkgs.fish;
-    homeMode = "0755";  # Allow group and others to read and execute
+    homeMode = "0755"; # Allow group and others to read and execute
     packages = with pkgs; [
       bat
       btop
@@ -20,12 +20,13 @@
       nodejs
       gh
       starship
+      nixfmt
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGYxapdT59ZrDWosETu1OA5d5Ca0vbcIR0TV4lYn6nNH fidget@white-whale"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJmtqac+hGeuQ9Zif/gfq11Yu/Xqfyq1z8O1Kt090lAR fidget@1password"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIdU6V47iFxaupJrfZfTtG+K2+foyJSFPOyGP3YgSKNr fidget@eden"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPM9oIeOZMfW96SYAJnFzWwoBeefBCs8xTKli5HADIOD fidget@seraph"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1lEzJi8LNEr2C/6LB2MksF1uWuVxOV2nX7l4CC544T fidget@eden"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJrF0X0VyS7qULOxTTUqWaTZCjS5ZMr5IkYJhV7Ad/UZ fidgetbeeby@gmail.com@seraph"
     ];
   };
 
@@ -38,9 +39,9 @@
     shell = pkgs.bash;
   };
 
-  users.groups.borgbackup = {};
-  users.groups.turnserver = {};
-  
+  users.groups.borgbackup = { };
+  users.groups.turnserver = { };
+
   # Add nginx user to turnserver group so it can read TURN certificates
   users.users.nginx.extraGroups = [ "turnserver" ];
 
@@ -56,4 +57,3 @@
     shell = "/run/current-system/sw/bin/nologin";
   };
 }
-

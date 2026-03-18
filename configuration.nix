@@ -2,12 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -25,13 +20,18 @@
     ./modules/file-sharing.nix
     ./modules/ai.nix
     ./modules/swap.nix
+    ./modules/secrets.nix
+    ./modules/openclaw.nix
+    "${
+      fetchTarball {
+        url = "https://github.com/Mic92/sops-nix/archive/master.tar.gz";
+        sha256 = "0mayn943a9xsfq9zzlzb6kl47ifmwy81h0q8kc4yrbw1y6akhmsh";
+      }
+    }/modules/sops"
   ];
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
-    zlib
-  ];
+  programs.nix-ld.libraries = with pkgs; [ stdenv.cc.cc zlib ];
 
   # State version
   system.stateVersion = "23.11";
